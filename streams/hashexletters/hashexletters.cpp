@@ -11,21 +11,33 @@ int main()
 	
 
 	while(true)
-	{	cout<<"Enter Integer"<<endl;
+	{	cout<<"Enter Integer: ";
 		int x=getInteger();
-		bool result = hashexletters(x);
+		cout<<"You Entered: "<<x<<endl;
+		bool result = false;
+		result = hashexletters(x);
+		if(result==true)
+		{
+			cout<<"'HasHexLetters' \n";
+		}
+		else
+		{
+			cout<<"'NoHasHexLeter' \n";
+		}
+
 	}	
 }
 
 int getInteger()
 {
-	stringstream mystream;
-	string input;
-	int x;
-	char remaining;
-	float remainingfloat;
+	
 	while(true)
 	{	
+		stringstream mystream;
+		string input;
+		int x;
+		char remaining;
+		float remainingfloat;
 		getline(cin,input);
 		mystream<<input;
 		if(mystream>>x)
@@ -42,12 +54,27 @@ int getInteger()
 	
 		}
 		else
-			cout<<"Retry"<<endl;
+			cout<<"Retry: ";
 	
 	}
 }
 
-bool hashexletters(int)
+bool hashexletters(int x)
 {
-	return true;
+	stringstream myStream;
+	myStream<<x;
+	int num;
+	myStream>>hex>>num;
+	//cout<<num;
+	if(num>10)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+
+	}
+
+
 }
